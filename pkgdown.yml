@@ -1,11 +1,12 @@
 pandoc: '2.2'
-pkgdown: 1.4.1
+pkgdown: 1.5.0
 pkgdown_sha: ~
 articles:
   asymmetric_mobility_intro: asymmetric_mobility_intro.html
   branching_process: branching_process.html
   commuter_model: commuter_model.html
   including_vax: including_vax.html
+last_built: 2020-04-06T11:31Z
 urls:
   reference: https://folkehelseinstituttet.github.io/spread//reference
   article: https://folkehelseinstituttet.github.io/spread//articles

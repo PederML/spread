@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,7 +41,6 @@
 
 <meta property="og:title" content="asymmetric mobility SE1E2IIaR — asymmetric_mobility_se1e2iiar" />
 <meta property="og:description" content="For more information, look at vignette(&quot;commuter_model&quot;,&quot;spread&quot;)" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -55,7 +58,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -69,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">spread</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.3.19</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.4.6</span>
       </span>
     </div>
 
@@ -138,14 +141,19 @@
     <p>For more information, look at <code><a href='../articles/commuter_model.html'>vignette("commuter_model","spread")</a></code></p>
     </div>
 
-    <pre class="usage"><span class='fu'>asymmetric_mobility_se1e2iiar</span>(<span class='kw'>se1e2iiar_pop</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'>asymmetric_mobility_dummy_se1e2iiar_pop</span>,
+    <pre class="usage"><span class='fu'>asymmetric_mobility_se1e2iiar</span>(
+  <span class='kw'>se1e2iiar_pop</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'>asymmetric_mobility_dummy_se1e2iiar_pop</span>,
   <span class='kw'>mobility_matrix</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'>asymmetric_mobility_dummy_se1e2iiar_mobility_matrix</span>,
   <span class='kw'>dynamic_seeds</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>betas</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'>asymmetric_mobility_dummy_se1e2iiar_betas</span>,
-  <span class='kw'>latent_period</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>presymptomatic_period</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>infectious_period</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>presymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>1.25</span>,
-  <span class='kw'>asymptomatic_prob</span> <span class='kw'>=</span> <span class='fl'>0.4</span>, <span class='kw'>asymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
-  <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
+  <span class='kw'>latent_period</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>presymptomatic_period</span> <span class='kw'>=</span> <span class='fl'>2</span>,
+  <span class='kw'>infectious_period</span> <span class='kw'>=</span> <span class='fl'>5</span>,
+  <span class='kw'>presymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>1.25</span>,
+  <span class='kw'>asymptomatic_prob</span> <span class='kw'>=</span> <span class='fl'>0.4</span>,
+  <span class='kw'>asymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
+  <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -164,15 +172,15 @@
     </tr>
     <tr>
       <th>betas</th>
-      <td><p>Vector (1 entry for each time period). Float, infection parameter, 0.6</p></td>
+      <td><p>Data frame with `locaton code`, `day`, `time`, `beta` (1 entry for each location for each time period). Float, infection parameter, 0.6</p></td>
     </tr>
     <tr>
       <th>latent_period</th>
-      <td><p>Float, 2.0</p></td>
+      <td><p>Float, 3.0</p></td>
     </tr>
     <tr>
       <th>presymptomatic_period</th>
-      <td><p>Float 3.0</p></td>
+      <td><p>Float 2.0</p></td>
     </tr>
     <tr>
       <th>infectious_period</th>
@@ -198,7 +206,7 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data.table containing the following variables:</p><dl class='dl-horizontal'>
+    <p>A data.table containing the following variables:</p><dl'>
 <dt>location_code</dt><dd><p>Location code</p></dd>
 <dt>week</dt><dd><p>Week number</p></dd>
 <dt>day</dt><dd><p>Day number</p></dd>
@@ -222,59 +230,55 @@
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/spread/man/asymmetric_mobility_se1e2iiar.html'>asymmetric_mobility_se1e2iiar</a></span>(
-  <span class='kw'>se1e2iiar_pop</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/spread/man/asymmetric_mobility_se1e2iiar_dummy_se1e2iiar_pop.html'>asymmetric_mobility_se1e2iiar_dummy_se1e2iiar_pop</a></span>,
-  <span class='kw'>mobility_matrix</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/spread/man/asymmetric_mobility_se1e2iiar_dummy_mobility_matrix.html'>asymmetric_mobility_se1e2iiar_dummy_mobility_matrix</a></span>,
-  <span class='kw'>dynamic_seeds</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/spread/man/asymmetric_mobility_se1e2iiar_dummy_dynamic_seeds.html'>asymmetric_mobility_se1e2iiar_dummy_dynamic_seeds</a></span>,
-  <span class='kw'>betas</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/spread/man/asymmetric_mobility_se1e2iiar_dummy_betas.html'>asymmetric_mobility_se1e2iiar_dummy_betas</a></span>,
-  <span class='kw'>latent_period</span> <span class='kw'>=</span> <span class='fl'>2.0</span>,
-  <span class='kw'>presymptomatic_period</span> <span class='kw'>=</span> <span class='fl'>3.0</span>,
+    <pre class="examples"><div class='input'><span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='fu'>asymmetric_mobility_se1e2iiar</span>(
+  <span class='kw'>se1e2iiar_pop</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='asymmetric_mobility_se1e2iiar_dummy_se1e2iiar_pop.html'>asymmetric_mobility_se1e2iiar_dummy_se1e2iiar_pop</a></span>,
+  <span class='kw'>mobility_matrix</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='asymmetric_mobility_se1e2iiar_dummy_mobility_matrix.html'>asymmetric_mobility_se1e2iiar_dummy_mobility_matrix</a></span>,
+  <span class='kw'>dynamic_seeds</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='asymmetric_mobility_se1e2iiar_dummy_dynamic_seeds.html'>asymmetric_mobility_se1e2iiar_dummy_dynamic_seeds</a></span>,
+  <span class='kw'>betas</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='asymmetric_mobility_se1e2iiar_dummy_betas.html'>asymmetric_mobility_se1e2iiar_dummy_betas</a></span>,
+  <span class='kw'>latent_period</span> <span class='kw'>=</span> <span class='fl'>3.0</span>,
+  <span class='kw'>presymptomatic_period</span> <span class='kw'>=</span> <span class='fl'>2.0</span>,
   <span class='kw'>infectious_period</span> <span class='kw'>=</span> <span class='fl'>5.0</span>,
   <span class='kw'>presymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>1</span>,
   <span class='kw'>asymptomatic_prob</span> <span class='kw'>=</span> <span class='fl'>0</span>,
   <span class='kw'>asymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>0</span>,
   <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>
 )</div><div class='output co'>#&gt;     location_code week day  time  b_S b_E1 b_E2 b_I b_Ia b_R  c_S c_E1 c_E2 c_I
-#&gt;  1:             a    1   1 23:59  972   24    4  44    0   6  815   23    4  43
-#&gt;  2:             a    1   2 23:59  950   34   11  35    0  20  647   28    9  30
-#&gt;  3:             a    1   3 23:59  925   41   13  42    0  29  487   24   13  31
-#&gt;  4:             a    1   4 23:59  901   46   25  41    0  37  338   24   14  20
-#&gt;  5:             a    1   5 23:59  877   47   39  41    0  46  196   14   14  12
-#&gt;  6:             b    1   1 23:59 1000    0    0   0    0   0 1157    1    0   1
-#&gt;  7:             b    1   2 23:59  999    1    0   0    0   0 1302    7    2   5
-#&gt;  8:             b    1   3 23:59  996    3    1   0    0   0 1434   20    1  11
-#&gt;  9:             b    1   4 23:59  992    5    3   0    0   0 1555   27   14  21
-#&gt; 10:             b    1   5 23:59  978   15    5   2    0   0 1659   48   30  31
+#&gt;  1:             a    1   1 23:59  968   29    3  38    0  12  813   26    3  37
+#&gt;  2:             a    1   2 23:59  947   40    7  39    0  17  641   37    6  33
+#&gt;  3:             a    1   3 23:59  922   53   11  36    0  28  488   39    7  20
+#&gt;  4:             a    1   4 23:59  909   52   18  33    0  38  343   31    8  14
+#&gt;  5:             a    1   5 23:59  897   50   23  30    0  50  205   16    8   6
+#&gt;  6:             b    1   1 23:59  999    1    0   0    0   0 1154    4    0   1
+#&gt;  7:             b    1   2 23:59  996    4    0   0    0   0 1302    7    1   6
+#&gt;  8:             b    1   3 23:59  988   11    1   0    0   0 1422   25    5  16
+#&gt;  9:             b    1   4 23:59  976   20    4   0    0   0 1542   41   14  19
+#&gt; 10:             b    1   5 23:59  965   24    9   2    0   0 1657   58   24  26
 #&gt; 11:             c    1   1 23:59 2000    0    0   0    0   0 2000    0    0   0
 #&gt; 12:             c    1   2 23:59 2000    0    0   0    0   0 2000    0    0   0
-#&gt; 13:             c    1   3 23:59 1999    1    0   0    0   0 1999    1    0   0
-#&gt; 14:             c    1   4 23:59 1998    2    0   0    0   0 1998    2    0   0
-#&gt; 15:             c    1   5 23:59 1998    2    0   0    0   0 1998    2    0   0
+#&gt; 13:             c    1   3 23:59 2000    0    0   0    0   0 2000    0    0   0
+#&gt; 14:             c    1   4 23:59 2000    0    0   0    0   0 2000    0    0   0
+#&gt; 15:             c    1   5 23:59 1999    1    0   0    0   0 1999    1    0   0
 #&gt;     c_Ia c_R c_symp_incidence c_asymp_incidence
-#&gt;  1:    0   5                0                 0
-#&gt;  2:    0  16                5                 0
-#&gt;  3:    0  15               10                 0
-#&gt;  4:    0  14                5                 0
-#&gt;  5:    0  14                3                 0
+#&gt;  1:    0  11                0                 0
+#&gt;  2:    0  13                5                 0
+#&gt;  3:    0  16                7                 0
+#&gt;  4:    0  14                3                 0
+#&gt;  5:    0  15                5                 0
 #&gt;  6:    0   1                0                 0
-#&gt;  7:    0   4                0                 0
-#&gt;  8:    0  14                6                 0
-#&gt;  9:    0  23                2                 0
-#&gt; 10:    0  32                8                 0
+#&gt;  7:    0   4                1                 0
+#&gt;  8:    0  12                1                 0
+#&gt;  9:    0  24                4                 0
+#&gt; 10:    0  35                6                 0
 #&gt; 11:    0   0                0                 0
 #&gt; 12:    0   0                0                 0
 #&gt; 13:    0   0                0                 0
 #&gt; 14:    0   0                0                 0
 #&gt; 15:    0   0                0                 0</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -285,7 +289,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.</p>
 </div>
 
       </footer>

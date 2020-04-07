@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">spread</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.4.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.4.7</span>
       </span>
     </div>
 
@@ -139,7 +139,7 @@
 <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span>(<span class="no">summary</span>$<span class="no">cumulative</span>[<span class="fl">30</span>,]))
 <span class="co">#&gt; [1] 5</span>
 <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="no">summary</span>$<span class="no">p_no_spread</span>)
-<span class="co">#&gt; [1] 0.27</span></pre></body></html></div>
+<span class="co">#&gt; [1] 0.254</span></pre></body></html></div>
 <p>The median number of cases is around 50, with a probability of no spread is around 6%.</p>
 </div>
 <div id="estimating-parameters-via-approximate-bayesian-computation-abc" class="section level1">
@@ -171,7 +171,7 @@
   )
 <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="kw pkg">HDInterval</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/HDInterval/man/hdi.html">hdi</a></span>(<span class="no">r</span>$<span class="no">R0</span>))
 <span class="co">#&gt; lower upper </span>
-<span class="co">#&gt;  2.15  4.50 </span>
+<span class="co">#&gt;   2.0   4.4 </span>
 <span class="co">#&gt; attr(,"credMass")</span>
 <span class="co">#&gt; [1] 0.95</span></pre></body></html></div>
 </div>

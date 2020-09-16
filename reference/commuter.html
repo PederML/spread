@@ -73,7 +73,7 @@ metapopulation model that including commuting." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">spread</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.4.14</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.9.16</span>
       </span>
     </div>
 
@@ -144,20 +144,20 @@ metapopulation model that including commuting.</p>
     </div>
 
     <pre class="usage"><span class='fu'>commuter</span>(
-  <span class='kw'>seiiar</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='norway_seiiar_oslo_2017_b2020.html'>norway_seiiar_oslo_2017_b2020</a></span>,
-  <span class='kw'>commuters</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='norway_commuters_2017_b2020.html'>norway_commuters_2017_b2020</a></span>,
-  <span class='kw'>r0</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>beta</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>latent_period</span> <span class='kw'>=</span> <span class='fl'>1.9</span>,
-  <span class='kw'>infectious_period</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>asymptomatic_prob</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>asymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>days_simulation</span> <span class='kw'>=</span> <span class='fl'>7</span> * <span class='fl'>8</span>,
-  <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>simulations</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>seed</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>aggregate_location</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+  seiiar = <span class='kw'>spread</span>::<span class='kw'><a href='norway_seiiar_oslo_2017_b2020.html'>norway_seiiar_oslo_2017_b2020</a></span>,
+  commuters = <span class='kw'>spread</span>::<span class='kw'><a href='norway_commuters_2017_b2020.html'>norway_commuters_2017_b2020</a></span>,
+  r0 = <span class='kw'>NULL</span>,
+  beta = <span class='kw'>NULL</span>,
+  latent_period = <span class='fl'>1.9</span>,
+  infectious_period = <span class='fl'>3</span>,
+  asymptomatic_prob = <span class='fl'>0</span>,
+  asymptomatic_relative_infectiousness = <span class='fl'>0</span>,
+  days_simulation = <span class='fl'>7</span> <span class='op'>*</span> <span class='fl'>8</span>,
+  N = <span class='fl'>1</span>,
+  simulations = <span class='fl'>1</span>,
+  verbose = <span class='fl'>TRUE</span>,
+  seed = <span class='kw'>NULL</span>,
+  aggregate_location = <span class='fl'>FALSE</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -224,7 +224,7 @@ metapopulation model that including commuting.</p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     
-<dl'>
+<dl>
 <dt>year</dt><dd><p>The middle year of a 5 year range (e.g. 2011 is the average of data from 2009-2013).</p></dd>
 <dt>location_code</dt><dd><p>The location code.</p></dd>
 <dt>age</dt><dd><p>The population age.</p></dd>
@@ -247,20 +247,21 @@ commuters are then sent to their respective home locations, where they mix for 1
 <p>For more information, look at <code><a href='../articles/commuter_model.html'>vignette("commuter_model","spread")</a></code></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='fu'>commuter</span>(
-  <span class='kw'>seiiar</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='norway_seiiar_measles_oslo_2017_b2020.html'>norway_seiiar_measles_oslo_2017_b2020</a></span>,
-  <span class='kw'>commuters</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='norway_commuters_2017_b2020.html'>norway_commuters_2017_b2020</a></span>,
-  <span class='kw'>r0</span> <span class='kw'>=</span> <span class='fl'>14</span>,
-  <span class='kw'>latent_period</span> <span class='kw'>=</span> <span class='fl'>8</span>,
-  <span class='kw'>infectious_period</span> <span class='kw'>=</span> <span class='fl'>5</span>,
-  <span class='kw'>asymptomatic_prob</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>asymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>days_simulation</span> <span class='kw'>=</span> <span class='fl'>7</span> * <span class='fl'>9</span>,
-  <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>simulations</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fl'>4</span>
-)</div><div class='output co'>#&gt; Starting to add edges, printing every 1000 edge
+    <pre class="examples"><div class='input'><span class='kw'>spread</span>::<span class='fu'>commuter</span>(
+  seiiar = <span class='kw'>spread</span>::<span class='kw'><a href='norway_seiiar_measles_oslo_2017_b2020.html'>norway_seiiar_measles_oslo_2017_b2020</a></span>,
+  commuters = <span class='kw'>spread</span>::<span class='kw'><a href='norway_commuters_2017_b2020.html'>norway_commuters_2017_b2020</a></span>,
+  r0 = <span class='fl'>14</span>,
+  latent_period = <span class='fl'>8</span>,
+  infectious_period = <span class='fl'>5</span>,
+  asymptomatic_prob = <span class='fl'>0</span>,
+  asymptomatic_relative_infectiousness = <span class='fl'>0</span>,
+  days_simulation = <span class='fl'>7</span> <span class='op'>*</span> <span class='fl'>9</span>,
+  N = <span class='fl'>1</span>,
+  simulations = <span class='fl'>1</span>,
+  verbose = <span class='fl'>TRUE</span>,
+  seed = <span class='fl'>4</span>
+)
+</div><div class='output co'>#&gt; Starting to add edges, printing every 1000 edge
 #&gt; 1000 2000 3000 4000 5000 6000 7000 8000 9000 10000 11000 12000 13000 14000 15000 16000 17000 18000 19000 20000 21000 22000 23000 Found 23894 edges
 #&gt; Running 1 simulations of 63 days
 #&gt; 
@@ -304,7 +305,7 @@ commuters are then sent to their respective home locations, where they mix for 1
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

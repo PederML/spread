@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">spread</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.4.14</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.9.16</span>
       </span>
     </div>
 
@@ -142,15 +142,15 @@
     </div>
 
     <pre class="usage"><span class='fu'>asymmetric_mobility</span>(
-  <span class='kw'>seiiar_pop</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='asymmetric_mobility_dummy_seiiar_pop.html'>asymmetric_mobility_dummy_seiiar_pop</a></span>,
-  <span class='kw'>mobility_matrix</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='asymmetric_mobility_dummy_mobility_matrix.html'>asymmetric_mobility_dummy_mobility_matrix</a></span>,
-  <span class='kw'>dynamic_seeds</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>betas</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='asymmetric_mobility_dummy_betas.html'>asymmetric_mobility_dummy_betas</a></span>,
-  <span class='kw'>latent_period</span> <span class='kw'>=</span> <span class='fl'>1.9</span>,
-  <span class='kw'>infectious_period</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>asymptomatic_prob</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>asymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>
+  seiiar_pop = <span class='kw'>spread</span>::<span class='kw'><a href='asymmetric_mobility_dummy_seiiar_pop.html'>asymmetric_mobility_dummy_seiiar_pop</a></span>,
+  mobility_matrix = <span class='kw'>spread</span>::<span class='kw'><a href='asymmetric_mobility_dummy_mobility_matrix.html'>asymmetric_mobility_dummy_mobility_matrix</a></span>,
+  dynamic_seeds = <span class='kw'>NULL</span>,
+  betas = <span class='kw'>spread</span>::<span class='kw'><a href='asymmetric_mobility_dummy_betas.html'>asymmetric_mobility_dummy_betas</a></span>,
+  latent_period = <span class='fl'>1.9</span>,
+  infectious_period = <span class='fl'>3</span>,
+  asymptomatic_prob = <span class='fl'>0</span>,
+  asymptomatic_relative_infectiousness = <span class='fl'>0</span>,
+  N = <span class='fl'>1</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -196,43 +196,44 @@
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='fu'>asymmetric_mobility</span>(
-  <span class='kw'>seiiar_pop</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='asymmetric_mobility_dummy_seiiar_pop.html'>asymmetric_mobility_dummy_seiiar_pop</a></span>,
-  <span class='kw'>mobility_matrix</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='asymmetric_mobility_dummy_mobility_matrix.html'>asymmetric_mobility_dummy_mobility_matrix</a></span>,
-  <span class='kw'>dynamic_seeds</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='asymmetric_mobility_dummy_dynamic_seeds.html'>asymmetric_mobility_dummy_dynamic_seeds</a></span>,
-  <span class='kw'>betas</span> <span class='kw'>=</span> <span class='kw pkg'>spread</span><span class='kw ns'>::</span><span class='no'><a href='asymmetric_mobility_dummy_betas.html'>asymmetric_mobility_dummy_betas</a></span>,
-  <span class='kw'>latent_period</span> <span class='kw'>=</span> <span class='fl'>1.9</span>,
-  <span class='kw'>infectious_period</span> <span class='kw'>=</span> <span class='fl'>3.0</span>,
-  <span class='kw'>asymptomatic_prob</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>asymptomatic_relative_infectiousness</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>N</span> <span class='kw'>=</span> <span class='fl'>1</span>
-)</div><div class='output co'>#&gt;     location_code week day  time  b_S b_E b_I b_Ia b_R  c_S c_E c_I c_Ia c_R
-#&gt;  1:             a    1   1 23:59  971  23  46    0  10  822  20  39    0   9
-#&gt;  2:             a    1   2 23:59  954  29  40    0  27  665  22  25    0  18
-#&gt;  3:             a    1   3 23:59  935  24  45    0  46  510  12  23    0  25
-#&gt;  4:             a    1   4 23:59  921  23  46    0  60  368  11  10    0  21
-#&gt;  5:             a    1   5 23:59  908  22  44    0  76  216   6   8    0  20
-#&gt;  6:             b    1   1 23:59  997   3   0    0   0 1146   6   7    0   1
-#&gt;  7:             b    1   2 23:59  994   4   2    0   0 1283  11  17    0   9
-#&gt;  8:             b    1   3 23:59  987   8   5    0   0 1412  20  27    0  21
-#&gt;  9:             b    1   4 23:59  975  17   5    0   3 1528  29  41    0  42
-#&gt; 10:             b    1   5 23:59  961  24  10    0   5 1653  40  46    0  61
+    <pre class="examples"><div class='input'><span class='kw'>spread</span>::<span class='fu'>asymmetric_mobility</span>(
+  seiiar_pop = <span class='kw'>spread</span>::<span class='kw'><a href='asymmetric_mobility_dummy_seiiar_pop.html'>asymmetric_mobility_dummy_seiiar_pop</a></span>,
+  mobility_matrix = <span class='kw'>spread</span>::<span class='kw'><a href='asymmetric_mobility_dummy_mobility_matrix.html'>asymmetric_mobility_dummy_mobility_matrix</a></span>,
+  dynamic_seeds = <span class='kw'>spread</span>::<span class='kw'><a href='asymmetric_mobility_dummy_dynamic_seeds.html'>asymmetric_mobility_dummy_dynamic_seeds</a></span>,
+  betas = <span class='kw'>spread</span>::<span class='kw'><a href='asymmetric_mobility_dummy_betas.html'>asymmetric_mobility_dummy_betas</a></span>,
+  latent_period = <span class='fl'>1.9</span>,
+  infectious_period = <span class='fl'>3.0</span>,
+  asymptomatic_prob = <span class='fl'>0</span>,
+  asymptomatic_relative_infectiousness = <span class='fl'>0</span>,
+  N = <span class='fl'>1</span>
+)
+</div><div class='output co'>#&gt;     location_code week day  time  b_S b_E b_I b_Ia b_R  c_S c_E c_I c_Ia c_R
+#&gt;  1:             a    1   1 23:59  973  21  46    0  10  822  20  39    0   9
+#&gt;  2:             a    1   2 23:59  950  32  45    0  23  658  27  31    0  14
+#&gt;  3:             a    1   3 23:59  934  23  48    0  45  501  16  32    0  21
+#&gt;  4:             a    1   4 23:59  915  30  39    0  66  347  12  23    0  28
+#&gt;  5:             a    1   5 23:59  895  29  51    0  75  202   9  18    0  21
+#&gt;  6:             b    1   1 23:59  995   5   0    0   0 1146   6   7    0   1
+#&gt;  7:             b    1   2 23:59  988  10   1    0   1 1280  15  15    0  10
+#&gt;  8:             b    1   3 23:59  979  12   7    0   2 1412  19  23    0  26
+#&gt;  9:             b    1   4 23:59  973  12  10    0   5 1541  30  26    0  43
+#&gt; 10:             b    1   5 23:59  958  17  14    0  11 1651  37  47    0  65
 #&gt; 11:             c    1   1 23:59 1999   0   0    0   1 1999   0   0    0   1
 #&gt; 12:             c    1   2 23:59 1999   0   0    0   1 1999   0   0    0   1
 #&gt; 13:             c    1   3 23:59 1999   0   0    0   1 1999   0   0    0   1
-#&gt; 14:             c    1   4 23:59 1999   0   0    0   1 1999   0   0    0   1
-#&gt; 15:             c    1   5 23:59 1999   0   0    0   1 1999   0   0    0   1
+#&gt; 14:             c    1   4 23:59 1998   1   0    0   1 1998   1   0    0   1
+#&gt; 15:             c    1   5 23:59 1998   0   1    0   1 1998   0   1    0   1
 #&gt;     c_incidence
 #&gt;  1:           1
 #&gt;  2:           3
-#&gt;  3:           1
-#&gt;  4:           2
+#&gt;  3:           2
+#&gt;  4:           0
 #&gt;  5:           1
 #&gt;  6:           0
 #&gt;  7:           1
 #&gt;  8:           1
 #&gt;  9:           5
-#&gt; 10:           6
+#&gt; 10:           9
 #&gt; 11:           0
 #&gt; 12:           0
 #&gt; 13:           0
@@ -253,7 +254,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

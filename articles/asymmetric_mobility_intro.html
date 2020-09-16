@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">spread</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.4.14</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.9.16</span>
       </span>
     </div>
 
@@ -101,89 +101,101 @@
 
     
     
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">spread</span>)
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">spread</span>)
 <span class="co">#&gt; </span>
 <span class="co">#&gt; PACKAGE: spread</span>
-<span class="co">#&gt; Version: 2020.04.14 at 13:20</span>
+<span class="co">#&gt; Version: 2020.09.16 at 09:37</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Commuter model and C++ code developed by Solveig Engebretsen and Andreas Nygård Osnes</span>
 <span class="co">#&gt; Asymmetric mobility model and C++ code developed by Solveig Engebretsen</span>
 <span class="co">#&gt; Commuter ported to RCPP by Richard White</span>
-<span class="co">#&gt; Branching process developed by Gunnar Ro</span></pre></body></html></div>
+<span class="co">#&gt; Branching process developed by Gunnar Ro</span>
+</pre></div>
 <div id="required-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#required-data" class="anchor"></a>Required data</h2>
 <p>The initial values for all geographic locations.</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="kw pkg">spread</span><span class="kw ns">::</span><span class="no"><a href="../reference/asymmetric_mobility_dummy_seiiar_pop.html">asymmetric_mobility_dummy_seiiar_pop</a></span>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="kw">spread</span>::<span class="kw"><a href="../reference/asymmetric_mobility_dummy_seiiar_pop.html">asymmetric_mobility_dummy_seiiar_pop</a></span>
 <span class="co">#&gt;    location_code    S E  I Ia R</span>
 <span class="co">#&gt; 1:             a 1000 0 50  0 0</span>
 <span class="co">#&gt; 2:             b 1000 0  0  0 0</span>
-<span class="co">#&gt; 3:             c 2000 0  0  0 0</span></pre></body></html></div>
+<span class="co">#&gt; 3:             c 2000 0  0  0 0</span>
+</pre></div>
 <p>A list containing 1 mobility matrix per time period (4 time periods per day, 5 days = 20 time periods).</p>
 <p>The mobility matrix must contain all non-diagonal links (i.e. every geographical location combination must be included, except for people “staying at home”)</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="kw pkg">spread</span><span class="kw ns">::</span><span class="no"><a href="../reference/asymmetric_mobility_dummy_mobility_matrix.html">asymmetric_mobility_dummy_mobility_matrix</a></span>)
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="kw">spread</span>::<span class="kw"><a href="../reference/asymmetric_mobility_dummy_mobility_matrix.html">asymmetric_mobility_dummy_mobility_matrix</a></span>)
 <span class="co">#&gt; [1] 20</span>
-<span class="kw pkg">spread</span><span class="kw ns">::</span><span class="no"><a href="../reference/asymmetric_mobility_dummy_mobility_matrix.html">asymmetric_mobility_dummy_mobility_matrix</a></span><span class="kw">[[</span><span class="fl">1</span>]]
+<span class="kw">spread</span>::<span class="kw"><a href="../reference/asymmetric_mobility_dummy_mobility_matrix.html">asymmetric_mobility_dummy_mobility_matrix</a></span>[[<span class="fl">1</span>]]
 <span class="co">#&gt;    from to  n</span>
 <span class="co">#&gt; 1:    a  b 50</span>
 <span class="co">#&gt; 2:    a  c 10</span>
 <span class="co">#&gt; 3:    b  a 10</span>
 <span class="co">#&gt; 4:    b  c 10</span>
 <span class="co">#&gt; 5:    c  a 10</span>
-<span class="co">#&gt; 6:    c  b 10</span></pre></body></html></div>
+<span class="co">#&gt; 6:    c  b 10</span>
+</pre></div>
 <p>One beta per time period.</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="kw pkg">spread</span><span class="kw ns">::</span><span class="no"><a href="../reference/asymmetric_mobility_dummy_betas.html">asymmetric_mobility_dummy_betas</a></span>
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="kw">spread</span>::<span class="kw"><a href="../reference/asymmetric_mobility_dummy_betas.html">asymmetric_mobility_dummy_betas</a></span>
 <span class="co">#&gt;  [1] 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6</span>
-<span class="co">#&gt; [20] 0.6</span></pre></body></html></div>
+<span class="co">#&gt; [20] 0.6</span>
+</pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">d</span> <span class="kw">&lt;-</span> <span class="kw pkg">spread</span><span class="kw ns">::</span><span class="fu"><a href="../reference/asymmetric_mobility.html">asymmetric_mobility</a></span>(
-  <span class="kw">seiiar_pop</span> <span class="kw">=</span> <span class="kw pkg">spread</span><span class="kw ns">::</span><span class="no"><a href="../reference/asymmetric_mobility_dummy_seiiar_pop.html">asymmetric_mobility_dummy_seiiar_pop</a></span>,
-  <span class="kw">mobility_matrix</span> <span class="kw">=</span> <span class="kw pkg">spread</span><span class="kw ns">::</span><span class="no"><a href="../reference/asymmetric_mobility_dummy_mobility_matrix.html">asymmetric_mobility_dummy_mobility_matrix</a></span>,
-  <span class="kw">betas</span> <span class="kw">=</span> <span class="kw pkg">spread</span><span class="kw ns">::</span><span class="no"><a href="../reference/asymmetric_mobility_dummy_betas.html">asymmetric_mobility_dummy_betas</a></span>,
-  <span class="kw">latent_period</span> <span class="kw">=</span> <span class="fl">1.9</span>,
-  <span class="kw">infectious_period</span> <span class="kw">=</span> <span class="fl">3.0</span>,
-  <span class="kw">asymptomatic_prob</span> <span class="kw">=</span> <span class="fl">0</span>,
-  <span class="kw">asymptomatic_relative_infectiousness</span> <span class="kw">=</span> <span class="fl">0</span>,
-  <span class="kw">N</span> <span class="kw">=</span> <span class="fl">1</span>
-)</pre></body></html></div>
+<div class="sourceCode" id="cb5"><pre class="downlit">
+<span class="kw">d</span> <span class="op">&lt;-</span> <span class="kw">spread</span>::<span class="fu"><a href="../reference/asymmetric_mobility.html">asymmetric_mobility</a></span>(
+  seiiar_pop = <span class="kw">spread</span>::<span class="kw"><a href="../reference/asymmetric_mobility_dummy_seiiar_pop.html">asymmetric_mobility_dummy_seiiar_pop</a></span>,
+  mobility_matrix = <span class="kw">spread</span>::<span class="kw"><a href="../reference/asymmetric_mobility_dummy_mobility_matrix.html">asymmetric_mobility_dummy_mobility_matrix</a></span>,
+  betas = <span class="kw">spread</span>::<span class="kw"><a href="../reference/asymmetric_mobility_dummy_betas.html">asymmetric_mobility_dummy_betas</a></span>,
+  latent_period = <span class="fl">1.9</span>,
+  infectious_period = <span class="fl">3.0</span>,
+  asymptomatic_prob = <span class="fl">0</span>,
+  asymptomatic_relative_infectiousness = <span class="fl">0</span>,
+  N = <span class="fl">1</span>
+)
+</pre></div>
 <p><code>b_*</code> variables represent the status of people belonging to a particular geographical location.</p>
 <p><code>c_*</code> variables represent the current status of all the people existing in that geographical location at that time point.</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="no">d</span>)
+<div class="sourceCode" id="cb6"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="kw">d</span>)
 <span class="co">#&gt;     location_code week day  time  b_S b_E b_I b_Ia b_R  c_S c_E c_I c_Ia c_R</span>
-<span class="co">#&gt;  1:             a    1   1 23:59  979  18  37    0  16  829  17  34    0  10</span>
-<span class="co">#&gt;  2:             a    1   2 23:59  952  29  43    0  26  659  24  33    0  14</span>
-<span class="co">#&gt;  3:             a    1   3 23:59  930  35  48    0  37  496  27  33    0  14</span>
-<span class="co">#&gt;  4:             a    1   4 23:59  911  36  49    0  54  348  20  26    0  16</span>
-<span class="co">#&gt;  5:             a    1   5 23:59  898  30  51    0  71  200  16  17    0  17</span>
-<span class="co">#&gt;  6:             b    1   1 23:59  999   1   0    0   0 1149   2   3    0   6</span>
-<span class="co">#&gt;  7:             b    1   2 23:59  998   1   1    0   0 1291   6  11    0  12</span>
-<span class="co">#&gt;  8:             b    1   3 23:59  994   4   2    0   0 1428  12  17    0  23</span>
-<span class="co">#&gt;  9:             b    1   4 23:59  983   9   5    0   3 1546  25  28    0  41</span>
-<span class="co">#&gt; 10:             b    1   5 23:59  974  14   8    0   4 1672  28  42    0  58</span>
-<span class="co">#&gt; 11:             c    1   1 23:59 2000   0   0    0   0 2000   0   0    0   0</span>
-<span class="co">#&gt; 12:             c    1   2 23:59 1998   2   0    0   0 1998   2   0    0   0</span>
-<span class="co">#&gt; 13:             c    1   3 23:59 1998   1   1    0   0 1998   1   1    0   0</span>
-<span class="co">#&gt; 14:             c    1   4 23:59 1996   2   2    0   0 1996   2   2    0   0</span>
-<span class="co">#&gt; 15:             c    1   5 23:59 1996   1   3    0   0 1996   1   3    0   0</span>
+<span class="co">#&gt;  1:             a    1   1 23:59  974  20  40    0  16  816  20  39    0  15</span>
+<span class="co">#&gt;  2:             a    1   2 23:59  961  21  37    0  31  657  20  29    0  24</span>
+<span class="co">#&gt;  3:             a    1   3 23:59  946  29  26    0  49  504  20  16    0  30</span>
+<span class="co">#&gt;  4:             a    1   4 23:59  936  21  32    0  61  358  11  19    0  22</span>
+<span class="co">#&gt;  5:             a    1   5 23:59  919  26  31    0  74  213  11   4    0  22</span>
+<span class="co">#&gt;  6:             b    1   1 23:59 1000   0   0    0   0 1158   0   1    0   1</span>
+<span class="co">#&gt;  7:             b    1   2 23:59  999   1   0    0   0 1303   2   8    0   7</span>
+<span class="co">#&gt;  8:             b    1   3 23:59  995   3   2    0   0 1437  12  12    0  19</span>
+<span class="co">#&gt;  9:             b    1   4 23:59  991   4   4    0   1 1569  14  17    0  40</span>
+<span class="co">#&gt; 10:             b    1   5 23:59  973  18   7    0   2 1679  33  34    0  54</span>
+<span class="co">#&gt; 11:             c    1   1 23:59 1999   1   0    0   0 1999   1   0    0   0</span>
+<span class="co">#&gt; 12:             c    1   2 23:59 1998   0   2    0   0 1998   0   2    0   0</span>
+<span class="co">#&gt; 13:             c    1   3 23:59 1993   5   2    0   0 1993   5   2    0   0</span>
+<span class="co">#&gt; 14:             c    1   4 23:59 1992   4   2    0   2 1992   4   2    0   2</span>
+<span class="co">#&gt; 15:             c    1   5 23:59 1989   6   3    0   2 1989   6   3    0   2</span>
 <span class="co">#&gt;     c_incidence</span>
-<span class="co">#&gt;  1:           1</span>
-<span class="co">#&gt;  2:           2</span>
-<span class="co">#&gt;  3:           7</span>
+<span class="co">#&gt;  1:           3</span>
+<span class="co">#&gt;  2:           1</span>
+<span class="co">#&gt;  3:           0</span>
 <span class="co">#&gt;  4:           2</span>
-<span class="co">#&gt;  5:           2</span>
+<span class="co">#&gt;  5:           0</span>
 <span class="co">#&gt;  6:           0</span>
 <span class="co">#&gt;  7:           1</span>
-<span class="co">#&gt;  8:           2</span>
-<span class="co">#&gt;  9:           5</span>
-<span class="co">#&gt; 10:           6</span>
+<span class="co">#&gt;  8:           0</span>
+<span class="co">#&gt;  9:           3</span>
+<span class="co">#&gt; 10:           3</span>
 <span class="co">#&gt; 11:           0</span>
-<span class="co">#&gt; 12:           0</span>
-<span class="co">#&gt; 13:           1</span>
+<span class="co">#&gt; 12:           2</span>
+<span class="co">#&gt; 13:           0</span>
 <span class="co">#&gt; 14:           0</span>
-<span class="co">#&gt; 15:           0</span></pre></body></html></div>
+<span class="co">#&gt; 15:           1</span>
+</pre></div>
 </div>
   </div>
 
@@ -202,7 +214,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

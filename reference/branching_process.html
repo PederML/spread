@@ -73,7 +73,7 @@ serial_interval a distcrete object" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">spread</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.4.14</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.9.16</span>
       </span>
     </div>
 
@@ -144,14 +144,14 @@ serial_interval a distcrete object</p>
     </div>
 
     <pre class="usage"><span class='fu'>branching_process</span>(
-  <span class='kw'>initial_cases</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>R0</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>dispersion</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>serial_interval</span> <span class='kw'>=</span> <span class='kw pkg'>distcrete</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/distcrete/man/distcrete.html'>distcrete</a></span>(<span class='st'>"gamma"</span>, <span class='kw'>interval</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>shape</span> <span class='kw'>=</span>
-    <span class='kw pkg'>epitrix</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/epitrix/man/gamma_tools.html'>gamma_mucv2shapescale</a></span>(<span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>8.4</span>, <span class='kw'>cv</span> <span class='kw'>=</span> <span class='fl'>3.4</span>/<span class='fl'>8.4</span>)$<span class='no'>shape</span>, <span class='kw'>scale</span> <span class='kw'>=</span>
-    <span class='kw pkg'>epitrix</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/epitrix/man/gamma_tools.html'>gamma_mucv2shapescale</a></span>(<span class='kw'>mu</span> <span class='kw'>=</span> <span class='fl'>8.4</span>, <span class='kw'>cv</span> <span class='kw'>=</span> <span class='fl'>3.4</span>/<span class='fl'>8.4</span>)$<span class='no'>scale</span>, <span class='kw'>w</span> <span class='kw'>=</span> <span class='fl'>0</span>),
-  <span class='kw'>days_simulation</span> <span class='kw'>=</span> <span class='fl'>10</span>,
-  <span class='kw'>simulations</span> <span class='kw'>=</span> <span class='fl'>1000</span>
+  initial_cases = <span class='fl'>1</span>,
+  R0 = <span class='fl'>3</span>,
+  dispersion = <span class='fl'>1</span>,
+  serial_interval = <span class='kw'>distcrete</span>::<span class='fu'><a href='https://rdrr.io/pkg/distcrete/man/distcrete.html'>distcrete</a></span>(<span class='st'>"gamma"</span>, interval = <span class='fl'>1</span>, shape =
+    <span class='kw'>epitrix</span>::<span class='fu'><a href='https://rdrr.io/pkg/epitrix/man/gamma_tools.html'>gamma_mucv2shapescale</a></span>(mu = <span class='fl'>8.4</span>, cv = <span class='fl'>3.4</span><span class='op'>/</span><span class='fl'>8.4</span>)<span class='op'>$</span><span class='kw'>shape</span>, scale =
+    <span class='kw'>epitrix</span>::<span class='fu'><a href='https://rdrr.io/pkg/epitrix/man/gamma_tools.html'>gamma_mucv2shapescale</a></span>(mu = <span class='fl'>8.4</span>, cv = <span class='fl'>3.4</span><span class='op'>/</span><span class='fl'>8.4</span>)<span class='op'>$</span><span class='kw'>scale</span>, w = <span class='fl'>0</span>),
+  days_simulation = <span class='fl'>10</span>,
+  simulations = <span class='fl'>1000</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -199,7 +199,7 @@ serial_interval a distcrete object</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

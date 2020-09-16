@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">spread</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.4.14</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2020.9.16</span>
       </span>
     </div>
 
@@ -94,7 +94,7 @@
       <h1 data-toc-skip>Commuter Model</h1>
                         <h4 class="author">Richard White</h4>
             
-            <h4 class="date">2020-04-14</h4>
+            <h4 class="date">2020-09-16</h4>
       
       
       <div class="hidden name"><code>commuter_model.Rmd</code></div>
@@ -111,8 +111,10 @@
 <div id="data-required" class="section level1">
 <h1 class="hasAnchor">
 <a href="#data-required" class="anchor"></a>Data required</h1>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggplot2</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">data.table</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://r-datatable.com">data.table</a></span>)
+</pre></div>
 <p><code>seiiar</code> is a dataset that contains the following variables for the entire population you want to model:</p>
 <ul>
 <li>
@@ -128,8 +130,9 @@
 <li>
 <code>R</code> the starting value of recovered people</li>
 </ul>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="co"># no one in Norway is infected, and everyone is susceptible</span>
-<span class="kw pkg">spread</span><span class="kw ns">::</span><span class="no"><a href="../reference/norway_seiiar_noinfected_2017_b2020.html">norway_seiiar_noinfected_2017_b2020</a></span>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="co"># no one in Norway is infected, and everyone is susceptible</span>
+<span class="kw">spread</span>::<span class="kw"><a href="../reference/norway_seiiar_noinfected_2017_b2020.html">norway_seiiar_noinfected_2017_b2020</a></span>
 <span class="co">#&gt;      location_code      S E I Ia R</span>
 <span class="co">#&gt;   1:   municip0301 666759 0 0  0 0</span>
 <span class="co">#&gt;   2:   municip1101  14899 0 0  0 0</span>
@@ -144,7 +147,7 @@
 <span class="co">#&gt; 356:   municip5444  10199 0 0  0 0</span>
 
 <span class="co"># 10 people in Oslo are infected, and everyone is susceptible</span>
-<span class="kw pkg">spread</span><span class="kw ns">::</span><span class="no"><a href="../reference/norway_seiiar_oslo_2017_b2020.html">norway_seiiar_oslo_2017_b2020</a></span>
+<span class="kw">spread</span>::<span class="kw"><a href="../reference/norway_seiiar_oslo_2017_b2020.html">norway_seiiar_oslo_2017_b2020</a></span>
 <span class="co">#&gt;      location_code      S E  I Ia R</span>
 <span class="co">#&gt;   1:   municip0301 666749 0 10  0 0</span>
 <span class="co">#&gt;   2:   municip1101  14899 0  0  0 0</span>
@@ -160,7 +163,7 @@
 
 <span class="co"># no one in Norway is infected, and childhood vaccination data is used to</span>
 <span class="co"># estimate the number of "recovered" (i.e. non-susceptible) people for measles</span>
-<span class="kw pkg">spread</span><span class="kw ns">::</span><span class="no"><a href="../reference/norway_seiiar_measles_noinfected_2017_b2020.html">norway_seiiar_measles_noinfected_2017_b2020</a></span>
+<span class="kw">spread</span>::<span class="kw"><a href="../reference/norway_seiiar_measles_noinfected_2017_b2020.html">norway_seiiar_measles_noinfected_2017_b2020</a></span>
 <span class="co">#&gt;      location_code     S E I Ia      R</span>
 <span class="co">#&gt;   1:   municip0301 59775 0 0  0 606984</span>
 <span class="co">#&gt;   2:   municip1101  1027 0 0  0  13872</span>
@@ -176,7 +179,7 @@
 
 <span class="co"># 10 people in Oslo is infected, and childhood vaccination data is used to</span>
 <span class="co"># estimate the number of "recovered" (i.e. non-susceptible) people for measles</span>
-<span class="kw pkg">spread</span><span class="kw ns">::</span><span class="no"><a href="../reference/norway_seiiar_measles_oslo_2017_b2020.html">norway_seiiar_measles_oslo_2017_b2020</a></span>
+<span class="kw">spread</span>::<span class="kw"><a href="../reference/norway_seiiar_measles_oslo_2017_b2020.html">norway_seiiar_measles_oslo_2017_b2020</a></span>
 <span class="co">#&gt;      location_code     S E  I Ia      R</span>
 <span class="co">#&gt;   1:   municip0301 59765 0 10  0 606984</span>
 <span class="co">#&gt;   2:   municip1101  1027 0  0  0  13872</span>
@@ -191,9 +194,10 @@
 <span class="co">#&gt; 356:   municip5444  1149 0  0  0   9050</span>
 
 <span class="co"># we can take a closer look at Oslo</span>
-<span class="kw pkg">spread</span><span class="kw ns">::</span><span class="no"><a href="../reference/norway_seiiar_measles_oslo_2017_b2020.html">norway_seiiar_measles_oslo_2017_b2020</a></span>[<span class="no">location_code</span><span class="kw">==</span><span class="st">"municip0301"</span>]
+<span class="kw">spread</span>::<span class="kw"><a href="../reference/norway_seiiar_measles_oslo_2017_b2020.html">norway_seiiar_measles_oslo_2017_b2020</a></span>[<span class="kw">location_code</span><span class="op">==</span><span class="st">"municip0301"</span>]
 <span class="co">#&gt;    location_code     S E  I Ia      R</span>
-<span class="co">#&gt; 1:   municip0301 59765 0 10  0 606984</span></pre></body></html></div>
+<span class="co">#&gt; 1:   municip0301 59765 0 10  0 606984</span>
+</pre></div>
 <p><code>commuters</code> is a dataset that contains the following variables:</p>
 <ul>
 <li>
@@ -203,8 +207,9 @@
 <li>
 <code>n</code> the number of people this applies to</li>
 </ul>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="co"># we provide the number of municipal commuters in Norway in 2017</span>
-<span class="kw pkg">spread</span><span class="kw ns">::</span><span class="no"><a href="../reference/norway_commuters_2017_b2020.html">norway_commuters_2017_b2020</a></span>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="co"># we provide the number of municipal commuters in Norway in 2017</span>
+<span class="kw">spread</span>::<span class="kw"><a href="../reference/norway_commuters_2017_b2020.html">norway_commuters_2017_b2020</a></span>
 <span class="co">#&gt;               from          to    n</span>
 <span class="co">#&gt;     1: municip0301 municip1101   71</span>
 <span class="co">#&gt;     2: municip0301 municip1103 1423</span>
@@ -216,7 +221,8 @@
 <span class="co">#&gt; 23949: municip5444 municip5440    1</span>
 <span class="co">#&gt; 23950: municip5444 municip5441   33</span>
 <span class="co">#&gt; 23951: municip5444 municip5442   12</span>
-<span class="co">#&gt; 23952: municip5444 municip5443    8</span></pre></body></html></div>
+<span class="co">#&gt; 23952: municip5444 municip5443    8</span>
+</pre></div>
 <p><code>r0</code> is the basic reproductive number.</p>
 <p><code>latent_period</code> is the average number of days from when a person is exposed until they are infectious.</p>
 <p><code>asymptomatic_prob</code> is the probability that an infectious person is asymptomatic.</p>
@@ -228,26 +234,29 @@
 <h1 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h1>
 <p>We simulate one measles outbreak using the datasets <code><a href="../reference/norway_seiiar_measles_oslo_2017_b2020.html">spread::norway_seiiar_measles_oslo_2017_b2020</a></code> and <code><a href="../reference/norway_commuters_2017_b2020.html">spread::norway_commuters_2017_b2020</a></code>:</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="fl">4</span>)
-<span class="no">d</span> <span class="kw">&lt;-</span> <span class="kw pkg">spread</span><span class="kw ns">::</span><span class="fu"><a href="../reference/commuter.html">commuter</a></span>(
-  <span class="kw">seiiar</span><span class="kw">=</span><span class="kw pkg">spread</span><span class="kw ns">::</span><span class="no"><a href="../reference/norway_seiiar_measles_oslo_2017_b2020.html">norway_seiiar_measles_oslo_2017_b2020</a></span>,
-  <span class="kw">commuters</span><span class="kw">=</span><span class="kw pkg">spread</span><span class="kw ns">::</span><span class="no"><a href="../reference/norway_commuters_2017_b2020.html">norway_commuters_2017_b2020</a></span>,
-  <span class="kw">r0</span><span class="kw">=</span><span class="fl">14</span>,
-  <span class="kw">latent_period</span> <span class="kw">=</span> <span class="fl">8</span>,
-  <span class="kw">infectious_period</span> <span class="kw">=</span> <span class="fl">5</span>,
-  <span class="kw">asymptomatic_prob</span><span class="kw">=</span><span class="fl">0</span>,
-  <span class="kw">asymptomatic_relative_infectiousness</span><span class="kw">=</span><span class="fl">0</span>,
-  <span class="kw">days_simulation</span><span class="kw">=</span><span class="fl">7</span>*<span class="fl">9</span>,
-  <span class="kw">N</span><span class="kw">=</span><span class="fl">1</span>
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="fl">4</span>)
+<span class="kw">d</span> <span class="op">&lt;-</span> <span class="kw">spread</span>::<span class="fu"><a href="../reference/commuter.html">commuter</a></span>(
+  seiiar=<span class="kw">spread</span>::<span class="kw"><a href="../reference/norway_seiiar_measles_oslo_2017_b2020.html">norway_seiiar_measles_oslo_2017_b2020</a></span>,
+  commuters=<span class="kw">spread</span>::<span class="kw"><a href="../reference/norway_commuters_2017_b2020.html">norway_commuters_2017_b2020</a></span>,
+  r0=<span class="fl">14</span>,
+  latent_period = <span class="fl">8</span>,
+  infectious_period = <span class="fl">5</span>,
+  asymptomatic_prob=<span class="fl">0</span>,
+  asymptomatic_relative_infectiousness=<span class="fl">0</span>,
+  days_simulation=<span class="fl">7</span><span class="op">*</span><span class="fl">9</span>,
+  N=<span class="fl">1</span>
 )
 <span class="co">#&gt; Starting to add edges, printing every 1000 edge</span>
 <span class="co">#&gt; 1000 2000 3000 4000 5000 6000 7000 8000 9000 10000 11000 12000 13000 14000 15000 16000 17000 18000 19000 20000 21000 22000 23000 Found 23894 edges</span>
 <span class="co">#&gt; Running 1 simulations of 63 days</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Finished all simulations</span></pre></body></html></div>
+<span class="co">#&gt; Finished all simulations</span>
+</pre></div>
 <p>Inspecting the data from Oslo:</p>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">d</span>[<span class="no">location_code</span><span class="kw">==</span><span class="st">"municip0301"</span>]
+<div class="sourceCode" id="cb5"><pre class="downlit">
+<span class="kw">d</span>[<span class="kw">location_code</span><span class="op">==</span><span class="st">"municip0301"</span>]
 <span class="co">#&gt;     sim_id location_code week day is_6pm     S  E I Ia      R incidence    pop</span>
 <span class="co">#&gt;  1:      1   municip0301    1   1   TRUE 59764  2 9  0 606985         0 666760</span>
 <span class="co">#&gt;  2:      1   municip0301    1   2   TRUE 59761  4 7  0 606988         1 666760</span>
@@ -312,21 +321,23 @@
 <span class="co">#&gt; 61:      1   municip0301    9  61   TRUE 59705 12 6  0 607037         0 666760</span>
 <span class="co">#&gt; 62:      1   municip0301    9  62   TRUE 59703 14 5  0 607038         0 666760</span>
 <span class="co">#&gt; 63:      1   municip0301    9  63   TRUE 59701 13 7  0 607039         3 666760</span>
-<span class="co">#&gt;     sim_id location_code week day is_6pm     S  E I Ia      R incidence    pop</span></pre></body></html></div>
+<span class="co">#&gt;     sim_id location_code week day is_6pm     S  E I Ia      R incidence    pop</span>
+</pre></div>
 <p>We can merge in information about counties, and create county level data:</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">d</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/merge.html">merge</a></span>(<span class="no">d</span>,<span class="kw pkg">fhidata</span><span class="kw ns">::</span><span class="no"><a href="https://rdrr.io/pkg/fhidata/man/norway_locations_b2020.html">norway_locations_b2020</a></span>, <span class="kw">by.x</span><span class="kw">=</span><span class="st">"location_code"</span>,<span class="kw">by.y</span><span class="kw">=</span><span class="st">"municip_code"</span>)
-<span class="no">county</span> <span class="kw">&lt;-</span> <span class="no">d</span>[,<span class="fu">.</span>(
-  <span class="kw">S</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="no">S</span>),
-  <span class="kw">E</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="no">E</span>),
-  <span class="kw">I</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="no">I</span>),
-  <span class="kw">Ia</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="no">Ia</span>),
-  <span class="kw">R</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="no">R</span>),
-  <span class="kw">incidence</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="no">incidence</span>),
-  <span class="kw">pop</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="no">pop</span>)
+<div class="sourceCode" id="cb6"><pre class="downlit">
+<span class="kw">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/merge.html">merge</a></span>(<span class="kw">d</span>,<span class="kw">fhidata</span>::<span class="kw"><a href="https://rdrr.io/pkg/fhidata/man/norway_locations_b2020.html">norway_locations_b2020</a></span>, by.x=<span class="st">"location_code"</span>,by.y=<span class="st">"municip_code"</span>)
+<span class="kw">county</span> <span class="op">&lt;-</span> <span class="kw">d</span>[,<span class="fu">.</span>(
+  S=<span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="kw">S</span>),
+  E=<span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="kw">E</span>),
+  I=<span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="kw">I</span>),
+  Ia=<span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="kw">Ia</span>),
+  R=<span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="kw">R</span>),
+  incidence=<span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="kw">incidence</span>),
+  pop=<span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="kw">pop</span>)
 ),
-<span class="kw">keyby</span><span class="kw">=</span><span class="fu">.</span>(<span class="no">county_code</span>,<span class="no">county_name</span>,<span class="no">week</span>,<span class="no">day</span>,<span class="no">is_6pm</span>)]
-<span class="no">county</span>[,<span class="no">county_name</span><span class="kw">:=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span>(<span class="no">county_name</span>,<span class="kw">levels</span><span class="kw">=</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/duplicated.html">unique</a></span>(<span class="kw pkg">fhidata</span><span class="kw ns">::</span><span class="no"><a href="https://rdrr.io/pkg/fhidata/man/norway_locations_b2020.html">norway_locations_b2020</a></span>[,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"county_code"</span>,<span class="st">"county_name"</span>)]$<span class="no">county_name</span>))]
-<span class="no">county</span>
+keyby=<span class="fu">.</span>(<span class="kw">county_code</span>,<span class="kw">county_name</span>,<span class="kw">week</span>,<span class="kw">day</span>,<span class="kw">is_6pm</span>)]
+<span class="kw">county</span>[,<span class="kw">county_name</span><span class="op">:=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span>(<span class="kw">county_name</span>,levels=<span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/duplicated.html">unique</a></span>(<span class="kw">fhidata</span>::<span class="kw"><a href="https://rdrr.io/pkg/fhidata/man/norway_locations_b2020.html">norway_locations_b2020</a></span>[,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"county_code"</span>,<span class="st">"county_name"</span>)]<span class="op">$</span><span class="kw">county_name</span>))]
+<span class="kw">county</span>
 <span class="co">#&gt;      county_code       county_name week day is_6pm     S E I Ia      R</span>
 <span class="co">#&gt;   1:    county03              Oslo    1   1   TRUE 59764 2 9  0 606985</span>
 <span class="co">#&gt;   2:    county03              Oslo    1   2   TRUE 59761 4 7  0 606988</span>
@@ -350,36 +361,41 @@
 <span class="co">#&gt; 690:         0 243029</span>
 <span class="co">#&gt; 691:         0 243029</span>
 <span class="co">#&gt; 692:         0 243029</span>
-<span class="co">#&gt; 693:         0 243029</span></pre></body></html></div>
+<span class="co">#&gt; 693:         0 243029</span>
+</pre></div>
 <p>We can produce a daily epicurve for each county:</p>
-<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="no">p</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="no">county</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span><span class="kw">=</span><span class="no">day</span>, <span class="kw">y</span><span class="kw">=</span><span class="no">incidence</span>))
-<span class="no">p</span> <span class="kw">&lt;-</span> <span class="no">p</span> + <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span>()
-<span class="no">p</span> <span class="kw">&lt;-</span> <span class="no">p</span> + <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(~<span class="no">county_name</span>)
-<span class="no">p</span> <span class="kw">&lt;-</span> <span class="no">p</span> + <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span>(<span class="st">"Day"</span>)
-<span class="no">p</span></pre></body></html></div>
+<div class="sourceCode" id="cb7"><pre class="downlit">
+<span class="kw">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">county</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x=<span class="kw">day</span>, y=<span class="kw">incidence</span>))
+<span class="kw">p</span> <span class="op">&lt;-</span> <span class="kw">p</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span>()
+<span class="kw">p</span> <span class="op">&lt;-</span> <span class="kw">p</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(<span class="op">~</span><span class="kw">county_name</span>)
+<span class="kw">p</span> <span class="op">&lt;-</span> <span class="kw">p</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span>(<span class="st">"Day"</span>)
+<span class="kw">p</span>
+</pre></div>
 <p><img src="commuter_model_files/figure-html/unnamed-chunk-7-1.png" width="672"></p>
 <p>And we can produce weekly maps:</p>
-<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="no">w</span> <span class="kw">&lt;-</span> <span class="no">county</span>[,<span class="fu">.</span>(
-  <span class="kw">incidence_weekly</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="no">incidence</span>),
-  <span class="kw">pop</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(<span class="no">pop</span>)
-), <span class="kw">keyby</span><span class="kw">=</span><span class="fu">.</span>(<span class="no">county_code</span>, <span class="no">week</span>)]
+<div class="sourceCode" id="cb8"><pre class="downlit">
+<span class="kw">w</span> <span class="op">&lt;-</span> <span class="kw">county</span>[,<span class="fu">.</span>(
+  incidence_weekly = <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="kw">incidence</span>),
+  pop = <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(<span class="kw">pop</span>)
+), keyby=<span class="fu">.</span>(<span class="kw">county_code</span>, <span class="kw">week</span>)]
 
-<span class="no">w</span>[,<span class="no">weekly_incidence_per_10000</span> <span class="kw">:=</span> <span class="fl">10000</span>*<span class="no">incidence_weekly</span>/<span class="no">pop</span>]
-<span class="no">w</span>[,<span class="no">facet</span><span class="kw">:=</span><span class="kw pkg">glue</span><span class="kw ns">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span>(<span class="st">"Week {week}"</span>,<span class="kw">week</span><span class="kw">=</span><span class="no">week</span>)]
+<span class="kw">w</span>[,<span class="kw">weekly_incidence_per_10000</span> <span class="op">:=</span> <span class="fl">10000</span><span class="op">*</span><span class="kw">incidence_weekly</span><span class="op">/</span><span class="kw">pop</span>]
+<span class="kw">w</span>[,<span class="kw">facet</span><span class="op">:=</span><span class="kw">glue</span>::<span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span>(<span class="st">"Week {week}"</span>,week=<span class="kw">week</span>)]
 
-<span class="no">pd</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/merge.html">merge</a></span>(
-  <span class="no">w</span>,
-  <span class="kw pkg">fhidata</span><span class="kw ns">::</span><span class="no"><a href="https://rdrr.io/pkg/fhidata/man/norway_map_counties_b2020.html">norway_map_counties_b2020</a></span>,
-  <span class="kw">by.x</span><span class="kw">=</span><span class="st">"county_code"</span>,
-  <span class="kw">by.y</span><span class="kw">=</span><span class="st">"location_code"</span>,
-  <span class="kw">allow.cartesian</span> <span class="kw">=</span> <span class="no">T</span>)
+<span class="kw">pd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/merge.html">merge</a></span>(
+  <span class="kw">w</span>,
+  <span class="kw">fhidata</span>::<span class="kw"><a href="https://rdrr.io/pkg/fhidata/man/norway_map_counties_b2020.html">norway_map_counties_b2020</a></span>, 
+  by.x=<span class="st">"county_code"</span>,
+  by.y=<span class="st">"location_code"</span>,
+  allow.cartesian = <span class="kw">T</span>)
 
-<span class="no">p</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">data</span><span class="kw">=</span><span class="no">pd</span>, <span class="kw">mapping</span><span class="kw">=</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>( <span class="kw">x</span> <span class="kw">=</span> <span class="no">long</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="no">lat</span>, <span class="kw">group</span> <span class="kw">=</span> <span class="no">group</span>))
-<span class="no">p</span> <span class="kw">&lt;-</span> <span class="no">p</span> + <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">fill</span><span class="kw">=</span><span class="no">weekly_incidence_per_10000</span>))
-<span class="no">p</span> <span class="kw">&lt;-</span> <span class="no">p</span> + <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(~<span class="no">facet</span>)
-<span class="no">p</span> <span class="kw">&lt;-</span> <span class="no">p</span> + <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span>()
-<span class="no">p</span> <span class="kw">&lt;-</span> <span class="no">p</span> + <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_map.html">coord_quickmap</a></span>()
-<span class="no">p</span></pre></body></html></div>
+<span class="kw">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(data=<span class="kw">pd</span>, mapping=<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>( x = <span class="kw">long</span>, y = <span class="kw">lat</span>, group = <span class="kw">group</span>))
+<span class="kw">p</span> <span class="op">&lt;-</span> <span class="kw">p</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(fill=<span class="kw">weekly_incidence_per_10000</span>))
+<span class="kw">p</span> <span class="op">&lt;-</span> <span class="kw">p</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(<span class="op">~</span><span class="kw">facet</span>)
+<span class="kw">p</span> <span class="op">&lt;-</span> <span class="kw">p</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span>()
+<span class="kw">p</span> <span class="op">&lt;-</span> <span class="kw">p</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_map.html">coord_quickmap</a></span>()
+<span class="kw">p</span>
+</pre></div>
 <p><img src="commuter_model_files/figure-html/unnamed-chunk-8-1.png" width="672"></p>
 </div>
   </div>
@@ -399,7 +415,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
